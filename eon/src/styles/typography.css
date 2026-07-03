@@ -1,0 +1,73 @@
+/* CLASH DISPLAY FONT */
+
+@font-face {
+    font-family: "Clash Display";
+    src: url("../assets/fonts/ClashDisplay/ClashDisplay-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Clash Display";
+    src: url("../assets/fonts/ClashDisplay/ClashDisplay-Medium.otf") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Clash Display";
+    src: url("../assets/fonts/ClashDisplay/ClashDisplay-Semibold.otf") format("opentype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Clash Display";
+    src: url("../assets/fonts/ClashDisplay/ClashDisplay-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+body{
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+.logo{
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -.03rem;
+}
+
+h1{
+    font-size: clamp(4rem, 8vw, 7rem);
+}
+
+h2{
+    font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h3{
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+h4{
+    font-size: 1.5rem;
+}
+
+p{
+    max-width: 60ch;
+}
+
+small{
+    font-size: .8rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+}

@@ -1,0 +1,49 @@
+:root{
+    /* Colors */
+    --color-primary: #363636;
+    --color-secondary: #242F40;
+    --color-accent: #CCA43B;
+    --color-light: #E5E5E5;
+    --color-white: #FFFFFF;
+
+    /* Fonts */
+    --font-heading: "Clash Display", sans-serif;
+    --font-body: "Inter Tight", sans-serif;
+
+
+/* TYPOGRAPHY */
+
+    --font-heading: "Clash Display", sans-serif;
+    --font-body: "Inter Tight", sans-serif;
+
+/* CONTAINER */
+
+    --container-width: 1200px;
+
+/* SPACING */
+
+    --space-xs: .5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 6rem;
+    --space-xxl: 8rem;
+
+/* BORDER */
+
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-pill: 999px;
+
+/* TRANSITION */
+
+    --transition-fast: .25s ease;
+    --transition-default: .35s ease;
+    --transition-slow: .5s ease;
+
+/* SHADOW */
+    --shadow-sm: 0 6px 20px rgba(0,0,0,.05);
+    --shadow-md: 0 12px 32px rgba(0,0,0,.08);
+
+}
