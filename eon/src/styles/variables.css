@@ -128,7 +128,11 @@
 ====================================================== */
     --container-max-width: 1200px;
     --container-padding: var(--space-4);
+
+    --container-width-sm: 700px;
+
     --section-spacing: var(--space-10);
+    --section-spacing-sm: var(--space-8);
 
 /* ======================================================
      Z-INDEX
