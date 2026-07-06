@@ -1,0 +1,27 @@
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+
+    transition: var(--transition-default);
+
+    cursor: pointer;
+}
+
+.button--primary{
+    background: var(--color-primary);
+    color: var(--color-text-inverse);
+}
+
+.button--primary:hover{
+    background: var(--color-gray-900);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
