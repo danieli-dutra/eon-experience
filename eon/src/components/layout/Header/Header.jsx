@@ -1,5 +1,6 @@
 import "./Header.css";
 import Button from "../../ui/Button/Button";
+import logo from "../../../assets/images/logo/eon-logo-dark.svg";
 
 function Header() {
   return (
@@ -7,8 +8,8 @@ function Header() {
       <div className="container header__container">
 
         <a href="#hero" className="header__logo">
-          EON
-            </a>
+          <img src={logo} alt="EON" />
+        </a>
 
         <nav className="header__nav">
           <a href="#manifesto">Manifesto</a>
