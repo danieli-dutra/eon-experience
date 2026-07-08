@@ -39,8 +39,8 @@
 
     color: var(--color-accent);
 
-    font-size: var(--font-size-caption);
-    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-semibold);
 
     letter-spacing: var(--letter-spacing-wide);
     text-transform: uppercase;

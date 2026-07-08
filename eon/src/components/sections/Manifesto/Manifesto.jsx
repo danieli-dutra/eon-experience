@@ -2,12 +2,32 @@ import "./Manifesto.css";
 
 function Manifesto() {
   return (
-    <section id="manifesto">
+    <section
+      id="manifesto"
+      className="manifesto"
+    >
       <div className="container">
-        <h2>Manifesto</h2>
-        <p>
-          We believe the future belongs to those who choose to build it.
-        </p>
+
+        <div className="manifesto__content">
+
+          <p className="manifesto__intro">
+            The world doesn't need more noise.
+          </p>
+
+          <h2 className="manifesto__title">
+            When did <em>SPEED</em>
+            <br />
+            become
+            <br />
+            more important
+            <br />
+            than
+            <br />
+            <strong>MEANING?</strong>
+          </h2>
+
+        </div>
+
       </div>
     </section>
   );
