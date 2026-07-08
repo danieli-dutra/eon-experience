@@ -13,14 +13,46 @@
     z-index: var(--z-menu);
 }
 
+/* ======================================================
+   LIST
+====================================================== */
+
 .side-navigation__list{
     display: flex;
     flex-direction: column;
 
-    gap: var(--space-6);
+    gap: var(--space-7);
 
     list-style: none;
 }
+
+/* ======================================================
+   ITEM
+====================================================== */
+
+.side-navigation__item{
+    position: relative;
+}
+
+/* Linha entre os itens */
+
+.side-navigation__item:not(:last-child)::after{
+    content: "";
+
+    position: absolute;
+
+    left: 5px;
+    top: 18px;
+
+    width: 1px;
+    height: calc(100% + var(--space-7));
+
+    background: rgba(255,255,255,.15);
+}
+
+/* ======================================================
+   LINK
+====================================================== */
 
 .side-navigation__link{
     display: flex;
@@ -33,15 +65,31 @@
     transition: var(--transition-default);
 }
 
+/* ======================================================
+   DOT
+====================================================== */
+
 .side-navigation__dot{
+    position: relative;
+
+    z-index: 2;
+
     width: 10px;
     height: 10px;
 
     border: 1px solid var(--color-accent);
     border-radius: 50%;
 
+    background: var(--color-background);
+
     flex-shrink: 0;
+
+    transition: var(--transition-default);
 }
+
+/* ======================================================
+   LABEL
+====================================================== */
 
 .side-navigation__label{
     font-size: var(--font-size-caption);
@@ -50,6 +98,10 @@
 
     text-transform: uppercase;
 }
+
+/* ======================================================
+   HOVER
+====================================================== */
 
 .side-navigation__link:hover{
     color: var(--color-text-inverse);

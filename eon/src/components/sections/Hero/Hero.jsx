@@ -4,9 +4,9 @@ import Button from "../../ui/Button/Button";
 
 function Hero() {
   return (
-    <section id="hero" className="hero" className="hero">
+    <section id="hero" className="hero">
 
-      <div className="container">
+      <div className="container hero__container">
 
         <div className="hero__content">
 
@@ -30,6 +30,11 @@ function Hero() {
 
         </div>
 
+        <div
+          className="hero__visual"
+          aria-hidden="true"
+        ></div>
+
       </div>
 
       <div
@@ -41,7 +46,7 @@ function Hero() {
         <div className="hero__scroll-line"></div>
       </div>
 
-    </section
+    </section>
   );
 }
 

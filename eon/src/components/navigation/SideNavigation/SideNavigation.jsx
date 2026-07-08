@@ -29,6 +29,7 @@ function SideNavigation() {
       className="side-navigation"
       aria-label="Navegação da página"
     >
+      
       <ul className="side-navigation__list">
         {sections.map((section) => (
           <li
