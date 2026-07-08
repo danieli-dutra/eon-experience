@@ -1,42 +1,65 @@
-.header {
+/* ======================================================
+   HEADER
+====================================================== */
+
+.header{
     position: fixed;
-    inset: 0 0 auto 0;
+    inset: 0;
 
-    z-index: var(--z-header);
+    height: 100px;
 
-    padding: var(--space-5) 0;
-
-    transition: var(--transition-default);
-}
-
-.header__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    padding-inline: var(--space-6);
+
+    z-index: var(--z-header);
+
+    pointer-events: none;
 }
 
-.header__logo {
-    display: inline-flex;
-    align-items: center;
+/* ======================================================
+   LOGO
+====================================================== */
+
+.header__logo,
+.header__menu{
+    pointer-events: auto;
 }
 
 .header__logo img{
-    display:block;
-    height: 3.5rem;
-    width:auto;
+    display: block;
+
+    width: 48px;
+    height: 48px;
 }
 
-.header__nav {
+/* ======================================================
+   MENU BUTTON
+====================================================== */
+
+.header__menu{
+    width: 48px;
+    height: 48px;
+
     display: flex;
-    gap: var(--space-6);
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+
+    gap: 6px;
+
+    background: transparent;
 }
 
-.header__nav a {
-    text-decoration: none;
-    color: var(--color-text-primary);
-    transition: var(--transition-fast);
-}
+.header__menu span{
+    display: block;
 
-.header__nav a:hover {
-    color: var(--color-accent);
+    width: 28px;
+    height: 2px;
+
+    background: var(--color-text-inverse);
+
+    transition: var(--transition-default);
 }
