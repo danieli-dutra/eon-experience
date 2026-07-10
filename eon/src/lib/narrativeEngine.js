@@ -1,18 +1,36 @@
 /* ======================================================
+   NARRATIVE STATES
+====================================================== */
+
+export const NarrativeState = Object.freeze({
+
+  HIDDEN: "hidden",
+
+  ACTIVE: "active",
+
+  PAST: "past"
+
+});
+
+/* ======================================================
    NARRATIVE ENGINE
 ====================================================== */
 
-export function createNarrativeEngine({ timeline, onEvent }) {
+export function createNarrativeEngine(timeline = []) {
 
-  const timers = [];
+  let timers = [];
 
-  function start() {
+  function play(callback) {
+
+    stop();
 
     timeline.forEach((event) => {
 
       const timer = setTimeout(() => {
-        onEvent(event);
-      }, event.time);
+
+        callback(event);
+
+      }, event.at);
 
       timers.push(timer);
 
@@ -24,27 +42,15 @@ export function createNarrativeEngine({ timeline, onEvent }) {
 
     timers.forEach(clearTimeout);
 
+    timers = [];
+
   }
 
   return {
-    start,
+
+    play,
     stop
+
   };
 
 }
-
-/* ======================================================
-   EVENT TYPES
-====================================================== */
-
-export const NarrativeEvent = {
-
-  SHOW: "SHOW",
-  DIM: "DIM",
-  HIDE: "HIDE",
-
-  QUESTION: "QUESTION",
-
-  LOGO: "LOGO"
-
-};
