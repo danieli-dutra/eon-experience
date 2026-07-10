@@ -1,0 +1,151 @@
+/* ======================================================
+   AVAILABILITY
+====================================================== */
+
+.availability{
+    display: flex;
+    align-items: center;
+
+    min-height: 100vh;
+}
+
+.availability .container{
+    width: 100%;
+}
+
+/* ======================================================
+   HEADER
+====================================================== */
+
+.availability__header{
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: var(--space-10);
+}
+
+/* ======================================================
+   EYEBROW
+====================================================== */
+
+.availability__eyebrow-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1rem;
+}
+
+.availability__eyebrow-line{
+    width: 72px;
+    height: 1px;
+
+    background: rgba(255, 255, 255, .18);
+}
+
+.availability__eyebrow{
+    font-family: var(--font-body);
+
+    font-size: 1rem;
+    font-weight: var(--font-weight-semibold);
+
+    letter-spacing: .24em;
+    text-transform: uppercase;
+
+    color: #5F7695;
+
+    white-space: nowrap;
+}
+
+/* ======================================================
+   CONTENT
+====================================================== */
+
+.availability__content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: var(--space-6);
+
+    max-width: 900px;
+
+    margin-inline: auto;
+}
+
+/* ======================================================
+   STATEMENT
+====================================================== */
+
+.availability__statement{
+
+    max-width: 28ch;
+
+    font-family: var(--font-heading);
+
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: var(--font-weight-semibold);
+
+    line-height: 1.22;
+
+    letter-spacing: 0;
+    word-spacing: .08em;
+
+    text-align: center;
+
+    color: var(--color-text-primary);
+
+    opacity: 0;
+
+    transform: translateY(24px);
+
+    filter: blur(2px);
+
+    transition:
+        opacity .9s ease,
+        transform .9s ease,
+        filter .9s ease;
+}
+
+/* ======================================================
+   CURRENT STATEMENT
+====================================================== */
+
+/* ======================================================
+   HIDDEN
+====================================================== */
+
+.availability__statement--hidden{
+
+    opacity:0;
+
+    transform:translateY(24px) scale(.96);
+
+    filter:blur(2px);
+}
+
+.availability__statement--active{
+
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+
+    filter: blur(0);
+
+    color: var(--color-text-primary);
+}
+
+/* ======================================================
+   PREVIOUS STATEMENTS
+====================================================== */
+
+.availability__statement--past{
+
+    opacity: .3;
+
+    transform: translateY(-12px) scale(.97);
+
+    filter: blur(0);
+
+    color: var(--color-text-secondary);
+}
