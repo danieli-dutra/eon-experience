@@ -34,61 +34,93 @@ const statements = [
 ];
 
 /* ======================================================
+   NARRATIVE TIMING
+====================================================== */
+
+const START_DELAY = 1500;
+
+const FADE_DELAY = 400;
+
+const WHY_DURATION = 4100;
+const BUILDERS_DURATION = 4000;
+const IMPACT_DURATION = 4200;
+const TECHNOLOGY_DURATION = 4000;
+const CURIOSITY_DURATION = 5500;
+
+/* ======================================================
+   TIMELINE MARKERS
+====================================================== */
+
+const WHY_START = START_DELAY;
+
+const BUILDERS_START = WHY_START + WHY_DURATION;
+const WHY_PAST = BUILDERS_START + FADE_DELAY;
+
+const IMPACT_START = BUILDERS_START + BUILDERS_DURATION;
+const BUILDERS_PAST = IMPACT_START + FADE_DELAY;
+
+const TECHNOLOGY_START = IMPACT_START + IMPACT_DURATION;
+const IMPACT_PAST = TECHNOLOGY_START + FADE_DELAY;
+
+const CURIOSITY_START = TECHNOLOGY_START + TECHNOLOGY_DURATION;
+const TECHNOLOGY_PAST = CURIOSITY_START + FADE_DELAY;
+
+/* ======================================================
    NARRATIVE TIMELINE
 ====================================================== */
 
 const TIMELINE = [
 
   {
-    at: 1500,
+    at: WHY_START,
     id: "statement-why",
     state: NarrativeState.ACTIVE
   },
 
   {
-    at: 5600,
+    at: BUILDERS_START,
     id: "statement-builders",
     state: NarrativeState.ACTIVE
   },
 
   {
-    at: 6500,
+    at: WHY_PAST,
     id: "statement-why",
     state: NarrativeState.PAST
   },
 
   {
-    at: 9800,
+    at: IMPACT_START,
     id: "statement-impact",
     state: NarrativeState.ACTIVE
   },
 
   {
-    at: 10700,
+    at: BUILDERS_PAST,
     id: "statement-builders",
     state: NarrativeState.PAST
   },
 
   {
-    at: 14500,
+    at: TECHNOLOGY_START,
     id: "statement-technology",
     state: NarrativeState.ACTIVE
   },
 
   {
-    at: 15400,
+    at: IMPACT_PAST,
     id: "statement-impact",
     state: NarrativeState.PAST
   },
 
   {
-    at: 19000,
+    at: CURIOSITY_START,
     id: "statement-curiosity",
     state: NarrativeState.ACTIVE
   },
 
   {
-    at: 19900,
+    at: TECHNOLOGY_PAST,
     id: "statement-technology",
     state: NarrativeState.PAST
   }

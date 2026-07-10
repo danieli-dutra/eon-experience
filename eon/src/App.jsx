@@ -10,6 +10,7 @@ import Hero from "./components/sections/Hero/Hero";
 import Manifesto from "./components/sections/Manifesto/Manifesto";
 import Pillars from "./components/sections/Pillars/Pillars";
 import Availability from "./components/sections/Availability/Availability";
+import Resonance from "./components/sections/Resonance/Resonance";
 import Join from "./components/sections/Join/Join";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Manifesto />
         <Pillars />
         <Availability />
+        <Resonance />
         <Join />
       </main>
 
