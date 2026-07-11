@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import "./Resonance.css";
 
-import symbol from "../../../assets/images/logo/eon-symbol.svg";
+import ring from "../../../assets/images/logo/eon-ring.svg";
 import logo from "../../../assets/images/logo/eon-logo-light.svg";
 
 import {
@@ -22,11 +22,13 @@ const NarrativeElements = Object.freeze({
 
   QUESTION_HERE: "question-here",
 
-  SYMBOL: "symbol",
+  PRELUDE: "prelude",
+
+  RING: "ring",
 
   LOGO: "logo",
 
-  SIGNATURE: "signature"
+  RESOLUTION: "resolution"
 
 });
 
@@ -55,67 +57,45 @@ const QUESTION = [
 ];
 
 /* ======================================================
-   REVEAL
-====================================================== */
-
-const REVEAL = [
-
-  {
-    id: NarrativeElements.SYMBOL,
-    type: "symbol"
-  },
-
-  {
-    id: NarrativeElements.LOGO,
-    type: "logo"
-  },
-
-  {
-    id: NarrativeElements.SIGNATURE,
-    type: "signature",
-    text: "THIS IS EON"
-  }
-
-];
-
-/* ======================================================
    NARRATIVE TIMING
 ====================================================== */
 
-const START_DELAY = 1200;
+const START_DELAY = 500;
 
-const TRANSITION = 700;
+const TRANSITION = 250;
 
-const SEE_DURATION = 3800;
-const YOURSELF_DURATION = 4000;
-const HERE_DURATION = 5000;
+const SEE_DURATION = 2200;
+const YOURSELF_DURATION = 2200;
+const HERE_DURATION = 2600;
 
-const REVEAL_DELAY = 1200;
+const SILENCE = 700;
 
-const SYMBOL_DURATION = 800;
-const LOGO_DURATION = 1200;
+const PRELUDE_DURATION = 900;
+
+const RING_DURATION = 1800;
+
+const LOGO_DURATION = 900;
 
 /* ======================================================
    TIMELINE MARKERS
 ====================================================== */
 
 const SEE_START = START_DELAY;
-
 const SEE_GONE = SEE_START + SEE_DURATION;
 
 const YOURSELF_START = SEE_GONE + TRANSITION;
-
 const YOURSELF_GONE = YOURSELF_START + YOURSELF_DURATION;
 
 const HERE_START = YOURSELF_GONE + TRANSITION;
-
 const HERE_GONE = HERE_START + HERE_DURATION;
 
-const SYMBOL_START = HERE_GONE + REVEAL_DELAY;
+const PRELUDE_START = HERE_GONE + SILENCE;
 
-const LOGO_START = SYMBOL_START + SYMBOL_DURATION;
+const RING_START = PRELUDE_START + PRELUDE_DURATION;
 
-const SIGNATURE_START = LOGO_START + LOGO_DURATION;
+const LOGO_START = RING_START + RING_DURATION;
+
+const RESOLUTION_START = LOGO_START + LOGO_DURATION;
 
 /* ======================================================
    NARRATIVE TIMELINE
@@ -160,8 +140,14 @@ const TIMELINE = [
   },
 
   {
-    at: SYMBOL_START,
-    id: NarrativeElements.SYMBOL,
+    at: PRELUDE_START,
+    id: NarrativeElements.PRELUDE,
+    state: NarrativeState.VISIBLE
+  },
+
+  {
+    at: RING_START,
+    id: NarrativeElements.RING,
     state: NarrativeState.VISIBLE
   },
 
@@ -172,8 +158,8 @@ const TIMELINE = [
   },
 
   {
-    at: SIGNATURE_START,
-    id: NarrativeElements.SIGNATURE,
+    at: RESOLUTION_START,
+    id: NarrativeElements.RESOLUTION,
     state: NarrativeState.VISIBLE
   }
 
@@ -281,7 +267,6 @@ function Resonance() {
   }, [started]);
 
   return (
-
         <section
       id="resonance"
       className="resonance section"
@@ -342,83 +327,76 @@ function Resonance() {
             </div>
 
             {/* ======================================================
+                PRELUDE
+            ====================================================== */}
+
+                        <p
+              className="resonance__prelude"
+              style={{
+                opacity:
+                  narrativeState[NarrativeElements.PRELUDE].state ===
+                  NarrativeState.VISIBLE
+                    ? 1
+                    : 0
+              }}
+            >
+              THIS IS...
+            </p>
+
+            {/* ======================================================
                 REVEAL
             ====================================================== */}
 
             <div className="resonance__reveal">
 
-              {REVEAL.map((item) => {
+              <img
+                className="resonance__ring"
+                src={ring}
+                alt=""
+                aria-hidden="true"
+                style={{
+                  opacity:
+                    narrativeState[NarrativeElements.RING].state ===
+                    NarrativeState.VISIBLE
+                      ? 1
+                      : 0
+                }}
+              />
 
-                const current = narrativeState[item.id];
-
-                const isVisible =
-                  current.state === NarrativeState.VISIBLE;
-
-                switch (item.type) {
-
-                  case "symbol":
-
-                    return (
-
-                      <img
-                        key={item.id}
-                        id={item.id}
-                        className="resonance__symbol"
-                        src={symbol}
-                        alt=""
-                        aria-hidden="true"
-                        style={{
-                          opacity: isVisible ? 1 : 0
-                        }}
-                      />
-
-                    );
-
-                  case "logo":
-
-                    return (
-
-                      <img
-                        key={item.id}
-                        id={item.id}
-                        className="resonance__logo"
-                        src={logo}
-                        alt="EON"
-                        style={{
-                          opacity: isVisible ? 1 : 0
-                        }}
-                      />
-
-                    );
-
-                  case "signature":
-
-                    return (
-
-                      <p
-                        key={item.id}
-                        id={item.id}
-                        className="resonance__signature"
-                        style={{
-                          opacity: isVisible ? 1 : 0
-                        }}
-                      >
-                        {item.text}
-                      </p>
-
-                    );
-
-                  default:
-
-                    return null;
-
-                }
-
-              })}
+              <img
+                className="resonance__logo"
+                src={logo}
+                alt="EON"
+                style={{
+                  opacity:
+                    narrativeState[NarrativeElements.LOGO].state ===
+                    NarrativeState.VISIBLE
+                      ? 1
+                      : 0
+                }}
+              />
 
             </div>
 
-          </div>
+            {/* ======================================================
+                RESOLUTION
+            ====================================================== */}
+
+            <p
+              className="resonance__resolution"
+              style={{
+                opacity:
+                  narrativeState[NarrativeElements.RESOLUTION].state ===
+                  NarrativeState.VISIBLE
+                    ? 1
+                    : 0
+              }}
+            >
+              THE NEXT <span>ERA</span> HAS
+              ALREADY BEGUN.
+            </p>
+
+                      </div>
 
         </div>
 

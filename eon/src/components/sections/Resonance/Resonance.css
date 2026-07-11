@@ -6,7 +6,7 @@
     display:flex;
     align-items:center;
 
-    min-height:100vh;
+    padding:8rem 0;
 }
 
 .resonance .container{
@@ -21,8 +21,6 @@
     display:flex;
     justify-content:center;
     align-items:center;
-
-    min-height:100vh;
 }
 
 /* ======================================================
@@ -32,8 +30,8 @@
 .resonance__stage{
     display:flex;
     flex-direction:column;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
 
     width:100%;
 }
@@ -44,11 +42,13 @@
 
 .resonance__text{
     display:flex;
-    flex-direction:column;
-    align-items:center;
     justify-content:center;
+    align-items:center;
 
-    min-height:340px;
+    position:relative;
+
+    width:100%;
+    min-height:260px;
 }
 
 /* ======================================================
@@ -58,16 +58,11 @@
 .resonance__line{
     position:absolute;
 
-    max-width:18ch;
-
     font-family:var(--font-heading);
-    font-size:clamp(3rem,6vw,5.5rem);
+    font-size:clamp(5.8rem,10vw,9.5rem);
     font-weight:var(--font-weight-semibold);
 
-    line-height:1.05;
-
-    letter-spacing:0;
-    word-spacing:.08em;
+    line-height:1;
 
     text-align:center;
     text-transform:uppercase;
@@ -76,9 +71,9 @@
 
     opacity:0;
 
-    transform:translateY(16px);
+    transform:translateY(18px);
 
-    filter:blur(8px);
+    filter:blur(2px);
 
     transition:
         opacity .9s ease,
@@ -86,67 +81,23 @@
         filter .9s ease;
 }
 
-/* ======================================================
-   ACCENT
-====================================================== */
-
 .resonance__line--accent{
     color:var(--color-accent);
 }
 
 /* ======================================================
-   REVEAL
+   PRELUDE
 ====================================================== */
 
-.resonance__reveal{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
+.resonance__prelude{
 
-    margin-top:10rem;
-}
-
-/* ======================================================
-   SYMBOL
-====================================================== */
-
-.resonance__symbol{
-    width:72px;
-    height:auto;
-
-    opacity:0;
-
-    transition:opacity 1.2s ease;
-}
-
-/* ======================================================
-   LOGO
-====================================================== */
-
-.resonance__logo{
-    width:min(320px,70vw);
-    height:auto;
-
-    margin-top:2rem;
-
-    opacity:0;
-
-    transition:opacity 1.2s ease;
-}
-
-/* ======================================================
-   SIGNATURE
-====================================================== */
-
-.resonance__signature{
-    margin-top:2rem;
+    margin-bottom:1rem;
 
     font-family:var(--font-body);
-    font-size:.95rem;
-    font-weight:var(--font-weight-medium);
+    font-size:1.35rem;
+    font-weight:700;
 
-    letter-spacing:.28em;
+    letter-spacing:.48em;
 
     text-transform:uppercase;
 
@@ -154,7 +105,101 @@
 
     opacity:0;
 
-    transition:opacity 1.2s ease;
+    transition:opacity .8s ease;
+
+}
+
+/* ======================================================
+   REVEAL
+====================================================== */
+
+.resonance__reveal{
+
+    position:relative;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    width:520px;
+    height:260px;
+
+}
+
+/* ======================================================
+   RING
+====================================================== */
+
+.resonance__ring{
+
+    position:absolute;
+
+    width:250px;
+    height:auto;
+
+    opacity:0;
+
+    transform:scale(.8) rotate(-90deg);
+
+    transition:
+        opacity .9s ease,
+        transform 1.8s cubic-bezier(.19,1,.22,1);
+
+}
+
+/* ======================================================
+   LOGO
+====================================================== */
+
+.resonance__logo{
+
+    position:absolute;
+
+    width:min(800px,vw);
+    height:auto;
+
+    opacity:0;
+
+    transform:scale(.92);
+
+    transition:
+        opacity .9s ease,
+        transform 1s cubic-bezier(.19,1,.22,1);
+
+}
+
+/* ======================================================
+   RESOLUTION
+====================================================== */
+
+.resonance__resolution{
+
+    margin-top:1.5rem;
+
+    font-family:var(--font-body);
+    font-size:clamp(1.35rem,1.8vw,1.8rem);
+    font-weight:var(--font-weight-medium);
+
+    letter-spacing:.02em;
+
+    line-height:1.3;
+
+    text-align:center;
+
+    white-space:nowrap;
+
+    color:var(--color-text-primary);
+
+    opacity:0;
+
+    transition:opacity 1s ease;
+
+}
+
+.resonance__resolution span{
+
+    color:var(--color-accent);
+
 }
 
 /* ======================================================
@@ -162,27 +207,33 @@
 ====================================================== */
 
 .resonance__line--hidden{
+
     opacity:0;
 
-    transform:translateY(16px);
+    transform:translateY(18px);
 
-    filter:blur(8px);
+    filter:blur(2px);
+
 }
 
 .resonance__line--visible{
+
     opacity:1;
 
     transform:translateY(0);
 
     filter:blur(0);
+
 }
 
 .resonance__line--gone{
+
     opacity:0;
 
-    transform:translateY(-10px);
+    transform:translateY(-12px);
 
-    filter:blur(3px);
+    filter:blur(1px);
+
 }
 
 /* ======================================================
