@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import "./Join.css";
 
@@ -33,6 +33,24 @@ const COPY = Object.freeze({
 
 function Join() {
 
+  /* ======================================================
+     REFS
+  ====================================================== */
+
+  const sectionRef = useRef(null);
+
+  /* ======================================================
+     ANIMATION STATE
+  ====================================================== */
+
+  const [subtitleVisible, setSubtitleVisible] = useState(false);
+
+  const [formVisible, setFormVisible] = useState(false);
+
+  /* ======================================================
+     FORM STATE
+  ====================================================== */
+
   const [formData, setFormData] = useState({
 
     [FORM_FIELDS.NAME]: "",
@@ -40,6 +58,62 @@ function Join() {
     [FORM_FIELDS.EMAIL]: ""
 
   });
+
+  /* ======================================================
+     START NARRATIVE
+  ====================================================== */
+
+  function startNarrative() {
+
+    setTimeout(() => {
+
+      setSubtitleVisible(true);
+
+    }, 700);
+
+    setTimeout(() => {
+
+      setFormVisible(true);
+
+    }, 1400);
+
+  }
+
+  /* ======================================================
+     INTERSECTION OBSERVER
+  ====================================================== */
+
+  useEffect(() => {
+
+    const observer = new IntersectionObserver(
+
+      ([entry]) => {
+
+        if (!entry.isIntersecting) return;
+
+        startNarrative();
+
+        observer.disconnect();
+
+      },
+
+      {
+
+        threshold: 0.45
+
+      }
+
+    );
+
+    if (sectionRef.current) {
+
+      observer.observe(sectionRef.current);
+
+    }
+
+    return () => observer.disconnect();
+
+  }, []);
 
   /* ======================================================
      HANDLE INPUT CHANGE
@@ -71,11 +145,12 @@ function Join() {
 
   }
 
-  return (
+    return (
 
     <section
       id="join"
       className="join section"
+      ref={sectionRef}
     >
 
       <div className="container">
@@ -90,23 +165,37 @@ function Join() {
 
             <h2 className="join__title">
 
-              <span className="join__title-line--single">
+              <span className="join__title-line join__title-line--single">
+
                 WE DON'T BUILD TRENDS.
+
               </span>
 
               <span className="join__title-line join__title-line--spaced">
+
                 WE BUILD WHAT
+
               </span>
 
               <span className="join__title-line">
+
                 <span className="join__title-accent">
+
                   COMES NEXT.
+
+                </span>
+
               </span>
-            </span>
 
             </h2>
 
-            <p className="join__subtitle">
+            <p
+              className={`join__subtitle ${
+                subtitleVisible
+                  ? "join__subtitle--visible"
+                  : ""
+              }`}
+            >
 
               {COPY.SUBTITLE}
 
@@ -119,7 +208,11 @@ function Join() {
           ====================================================== */}
 
           <form
-            className="join__form"
+            className={`join__form ${
+              formVisible
+                ? "join__form--visible"
+                : ""
+            }`}
             onSubmit={handleSubmit}
           >
 
@@ -133,7 +226,9 @@ function Join() {
                 htmlFor={FORM_FIELDS.NAME}
                 className="join__label"
               >
+
                 Name
+
               </label>
 
               <input
@@ -159,7 +254,9 @@ function Join() {
                 htmlFor={FORM_FIELDS.EMAIL}
                 className="join__label"
               >
+
                 Email
+
               </label>
 
               <input
@@ -183,7 +280,9 @@ function Join() {
               type="submit"
               className="join__button"
             >
+
               {COPY.BUTTON}
+
             </button>
 
           </form>
