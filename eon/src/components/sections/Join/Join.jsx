@@ -90,16 +90,19 @@ function Join() {
 
             <h2 className="join__title">
 
-              {COPY.TITLE.map((line) => (
+              <span className="join__title-line--single">
+                WE DON'T BUILD TRENDS.
+              </span>
 
-                <span
-                  key={line}
-                  className="join__title-line"
-                >
-                  {line}
-                </span>
+              <span className="join__title-line join__title-line--spaced">
+                WE BUILD WHAT
+              </span>
 
-              ))}
+              <span className="join__title-line">
+                <span className="join__title-accent">
+                  COMES NEXT.
+              </span>
+            </span>
 
             </h2>
 
