@@ -69,13 +69,13 @@ function Join() {
 
       setSubtitleVisible(true);
 
-    }, 700);
+    }, 2300);
 
     setTimeout(() => {
 
       setFormVisible(true);
 
-    }, 1400);
+    }, 3900);
 
   }
 
