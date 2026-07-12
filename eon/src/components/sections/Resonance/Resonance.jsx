@@ -76,7 +76,7 @@ const RING_REVEAL_DURATION = 1800;
 
 const RING_HOLD_DURATION = 900;
 
-const LOGO_DURATION = 900;
+const LOGO_DURATION = 1200;
 
 /* ======================================================
    TIMELINE MARKERS
@@ -357,7 +357,14 @@ function Resonance() {
     REVEAL
 ====================================================== */}
 
-<div className="resonance__reveal">
+<div
+  className={`resonance__reveal ${
+    narrativeState[NarrativeElements.LOGO].state ===
+    NarrativeState.VISIBLE
+      ? "resonance__reveal--active"
+      : ""
+  }`}
+>
 
   {/* ==============================================
       RING
@@ -400,20 +407,27 @@ function Resonance() {
       LOGO
   ============================================== */}
 
+  <div
+  className={`resonance__logo-wrapper ${
+    narrativeState[NarrativeElements.LOGO].state ===
+    NarrativeState.VISIBLE
+      ? "resonance__logo-wrapper--active"
+      : ""
+  }`}
+>
+
   <img
-    className="resonance__logo"
-    src={logo}
-    alt="EON"
-    style={{
+  className={`resonance__logo ${
+    narrativeState[NarrativeElements.LOGO].state ===
+    NarrativeState.VISIBLE
+      ? "resonance__logo--visible"
+      : ""
+  }`}
+  src={logo}
+  alt="EON"
+/>
 
-      opacity:
-        narrativeState[NarrativeElements.LOGO].state ===
-        NarrativeState.VISIBLE
-          ? 1
-          : 0
-
-    }}
-  />
+</div>
 
 </div>
 
