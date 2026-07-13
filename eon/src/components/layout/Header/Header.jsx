@@ -9,14 +9,6 @@ function Header() {
           <img src={symbol} alt="EON" />
         </a>
 
-        <button className="header__menu" aria-label="Abrir navegação">
-
-
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
     </header>
   );
 }

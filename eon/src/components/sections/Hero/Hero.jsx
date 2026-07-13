@@ -1,7 +1,5 @@
 import "./Hero.css";
 
-import Button from "../../ui/Button/Button";
-
 function Hero() {
   return (
     <section id="hero" className="hero">
@@ -24,10 +22,6 @@ function Hero() {
             people realize it.
           </p>
 
-          <Button>
-            Start the Journey
-          </Button>
-
         </div>
 
         <div
@@ -41,9 +35,19 @@ function Hero() {
         className="hero__scroll"
         aria-hidden="true"
       >
-        <span>Scroll to discover</span>
 
-        <div className="hero__scroll-line"></div>
+        <span className="hero__scroll-text">
+
+          SCROLL
+
+        </span>
+
+        <div className="hero__scroll-indicator">
+
+          <span className="hero__scroll-dot"></span>
+
+        </div>
+
       </div>
 
     </section>

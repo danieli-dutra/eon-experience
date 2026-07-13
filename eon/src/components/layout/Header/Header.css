@@ -23,8 +23,7 @@
    LOGO
 ====================================================== */
 
-.header__logo,
-.header__menu{
+.header__logo{
     pointer-events: auto;
 }
 
@@ -33,33 +32,4 @@
 
     width: 48px;
     height: 48px;
-}
-
-/* ======================================================
-   MENU BUTTON
-====================================================== */
-
-.header__menu{
-    width: 48px;
-    height: 48px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-
-    gap: 6px;
-
-    background: transparent;
-}
-
-.header__menu span{
-    display: block;
-
-    width: 28px;
-    height: 2px;
-
-    background: var(--color-text-inverse);
-
-    transition: var(--transition-default);
 }
