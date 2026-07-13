@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import "./Join.css";
+import Success from "./Success";
 
 /* ======================================================
    FORM FIELDS
@@ -288,17 +289,20 @@ function Join() {
 
             </h2>
 
-            <p
-              className={`join__subtitle ${
-                subtitleVisible
-                  ? "join__subtitle--visible"
-                  : ""
-              }`}
-            >
+            {!isSuccess && (
 
-              {COPY.SUBTITLE}
+              <p
+                className={`join__subtitle ${
+                  subtitleVisible
+                    ? "join__subtitle--visible"
+                    : ""
+                }`}
+              >
+                {COPY.SUBTITLE}
 
-            </p>
+              </p>
+
+            )}
 
           </header>
 
@@ -308,11 +312,7 @@ function Join() {
 
           {isSuccess ? (
 
-            <div className="join__success">
-
-              {/* Success message será adicionada na próxima etapa */}
-
-            </div>
+            <Success />
 
           ) : (
 
