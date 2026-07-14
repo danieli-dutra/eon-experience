@@ -1,6 +1,5 @@
 # EON | Narrative Blueprint
 
----
 
 # Objetivo
 
