@@ -45,7 +45,6 @@ const WHY_DURATION = 4100;
 const BUILDERS_DURATION = 4000;
 const IMPACT_DURATION = 4200;
 const TECHNOLOGY_DURATION = 4000;
-const CURIOSITY_DURATION = 5500;
 
 /* ======================================================
    TIMELINE MARKERS
@@ -253,7 +252,7 @@ function Availability() {
 
             const current = narrativeState[statement.id];
 
-            let stateClass = "availability__statement--hidden";
+            let stateClass;
 
             switch (current.state) {
 

@@ -219,7 +219,7 @@ function Resonance() {
 
       {
 
-        threshold: 0.45,
+        threshold: 0,
         rootMargin: "-10% 0px"
 
       }
@@ -299,7 +299,7 @@ function Resonance() {
 
                 const current = narrativeState[line.id];
 
-                let stateClass = "resonance__line--hidden";
+                    let stateClass;
 
                 switch (current.state) {
 
