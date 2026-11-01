@@ -134,11 +134,11 @@
      LAYOUT
 ====================================================== */
     --container-max-width: 1200px;
-    --container-padding: var(--space-4);
+    --container-padding: clamp(1.25rem, 5vw, 5rem);
 
     --container-width-sm: 700px;
 
-    --section-spacing: var(--space-10);
+    --section-spacing: clamp(4rem, 8vw, 8rem);
     --section-spacing-sm: var(--space-8);
 
 /* ======================================================
@@ -148,4 +148,9 @@
     --z-header: 100;
     --z-menu: 200;
     --z-modal: 1000;
+}
+
+/* Reserve a gutter for the fixed navigation on notebook layouts. */
+@media (min-width:901px){
+    :root{ --container-padding:5rem; }
 }

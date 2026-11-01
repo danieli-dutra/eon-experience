@@ -1,0 +1,10 @@
+{
+  "menuKeyboard": true,
+  "menuAnchors": true,
+  "formError": true,
+  "formSuccess": true,
+  "externalSubmission": "mocked; no real data sent",
+  "reducedMotion": true,
+  "reflow200": "640x360 CSS pixels, equivalent layout space to 1280x720 at 200%; not native browser zoom",
+  "pageErrors": []
+}

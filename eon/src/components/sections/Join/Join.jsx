@@ -32,35 +32,6 @@ const COPY = Object.freeze({
 
 });
 
-/* ======================================================
-   SUCCESS COPY
-====================================================== */
-
-const SUCCESS_COPY = Object.freeze({
-
-  TITLE: "Your signal has been received.",
-
-  INTRO: [
-    "The next conversation",
-    "starts sooner than you think."
-  ],
-
-  MIDDLE: "Until then...",
-
-  VALUES: [
-    "Keep questioning.",
-    "Keep imagining.",
-    "Stay curious."
-  ],
-
-  END: [
-    "When it's time,",
-    "we'll want to hear",
-    "what you'll bring."
-  ]
-
-});
-
 function Join() {
 
   /* ======================================================
@@ -68,6 +39,7 @@ function Join() {
   ====================================================== */
 
   const sectionRef = useRef(null);
+  const timersRef = useRef([]);
 
   /* ======================================================
      ANIMATION STATE
@@ -101,17 +73,17 @@ function Join() {
 
   function startNarrative() {
 
-    setTimeout(() => {
+    timersRef.current.push(setTimeout(() => {
 
       setSubtitleVisible(true);
 
-    }, 2300);
+    }, 2300));
 
-    setTimeout(() => {
+    timersRef.current.push(setTimeout(() => {
 
       setFormVisible(true);
 
-    }, 3900);
+    }, 3900));
 
   }
 
@@ -135,7 +107,7 @@ function Join() {
 
       {
 
-        threshold: 0.45
+        threshold: 0
 
       }
 
@@ -147,7 +119,11 @@ function Join() {
 
     }
 
-    return () => observer.disconnect();
+    const timers = timersRef.current;
+    return () => {
+      observer.disconnect();
+      timers.forEach(clearTimeout);
+    };
 
   }, []);
 
@@ -250,7 +226,6 @@ function Join() {
     <section
       id="join"
       className="join section"
-      ref={sectionRef}
     >
 
       <div className="container">
@@ -261,7 +236,7 @@ function Join() {
               HEADER
           ====================================================== */}
 
-          <header className="join__header">
+          <header className="join__header" ref={sectionRef}>
 
             <h2 className="join__title">
 
@@ -323,6 +298,7 @@ function Join() {
                   : ""
               }`}
               onSubmit={handleSubmit}
+              aria-busy={isSubmitting}
             >
 
               {/* ==============================================
@@ -384,6 +360,8 @@ function Join() {
               {/* ==============================================
                   CTA
               ============================================== */}
+
+              {error && <p className="join__error" role="alert">{error}</p>}
 
               <button
                 type="submit"

@@ -6,11 +6,7 @@
     display: flex;
     align-items: center;
 
-    min-height: 100vh;
-}
-
-.availability .container{
-    width: 100%;
+    min-height: 100svh;
 }
 
 /* ======================================================
@@ -21,7 +17,7 @@
     display: flex;
     justify-content: center;
 
-    margin-bottom: var(--space-10);
+    margin-bottom: var(--section-spacing);
 }
 
 /* ======================================================
@@ -82,7 +78,7 @@
 
     font-family: var(--font-heading);
 
-    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-size: clamp(1.65rem, 4vw, 3.5rem);
     font-weight: var(--font-weight-semibold);
 
     line-height: 1.22;
@@ -137,7 +133,7 @@
 ====================================================== */
 
 .availability__statement--past{
-    opacity: .3;
+    opacity: .72;
 
     transform: translateY(-12px) scale(.97);
 
@@ -180,8 +176,12 @@
 
     .availability__eyebrow-line{
 
-        width:40px;
+        width:clamp(.75rem, 4vw, 2.5rem);
 
     }
 
+}
+
+@media (prefers-reduced-motion: reduce){
+    .availability__statement{ opacity:1; transform:none; filter:none; }
 }

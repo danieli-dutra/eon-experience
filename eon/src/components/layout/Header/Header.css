@@ -24,6 +24,10 @@
 ====================================================== */
 
 .header__logo{
+    display:grid;
+    place-items:center;
+    min-width:44px;
+    min-height:44px;
     pointer-events: auto;
 }
 
@@ -48,8 +52,13 @@
 
     .header__logo{
 
-        display:none;
+        display:block;
 
     }
 
+}
+
+@media (max-width:900px){
+    .header{ height:76px; padding-inline:var(--container-padding); }
+    .header__logo img{ width:36px; height:36px; }
 }

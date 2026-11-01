@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
 
-    min-height: 100vh;
+    min-height: 100svh;
 }
 
 .manifesto .container{
@@ -47,7 +47,7 @@
 
 .manifesto__title{
 
-    font-size: clamp(2.8rem, 5vw, 5rem);
+    font-size: clamp(2rem, 5vw, 5rem);
     font-weight: var(--font-weight-semibold);
 
     line-height: 1.18;
